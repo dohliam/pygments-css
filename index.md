@@ -1,0 +1,276 @@
+# Pygments.css stylesheets demo
+
+Select one of the <a href="https://github.com/richleland/pygments-css">Pygments.css</a> stylesheets from the dropdown menu above to see it applied to code in a variety of different languages.
+
+* [Bash](#bash)
+* [C](#c)
+* [C++](#c)
+* [Go](#go)
+* [Haskell](#haskell)
+* [Java](#java)
+* [JavaScript](#javascript)
+* [Lisp](#lisp)
+* [Lua](#lua)
+* [Perl](#perl)
+* [Python](#python)
+* [Ruby](#ruby)
+* [Rust](#rust)
+* [Credits](#credits)
+
+## Bash
+
+```bash
+#!/bin/bash
+
+for i in {1..100}; do
+    if (( $i % 15 == 0 )); then
+        echo "FizzBuzz"
+    elif (( $i % 5 == 0 )); then
+        echo "Buzz"
+    elif (( $i % 3 == 0 )); then
+        echo "Fizz"
+    else
+        echo $i
+    fi
+done
+```
+
+## C
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    for (unsigned int i = 1; i <= 100; i++) {
+        if (i % 15 == 0) {
+            puts("FizzBuzz");
+        } else if (i % 3 == 0) {
+            puts("Fizz");
+        } else if (i % 5 == 0) {
+            puts("Buzz");
+        } else {
+            printf("%u\n", i);
+        }
+    }
+    return 0;
+}
+```
+
+## C++
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    for (int i = 1; i <= 100; i++) {
+        if (i % 15 == 0)
+            std::cout << "FizzBuzz\n";
+        else if (i % 5 == 0)
+            std::cout << "Buzz\n";
+        else if (i % 3 == 0)
+            std::cout << "Fizz\n";
+        else
+            std::cout << i << "\n";
+    }
+    return 0;
+}
+```
+
+## Go
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	for i := 1; i <= 100; i++ {
+		if i%15 == 0 {
+			fmt.Println("FizzBuzz")
+		} else if i%3 == 0 {
+			fmt.Println("Fizz")
+		} else if i%5 == 0 {
+			fmt.Println("Buzz")
+		} else {
+			fmt.Println(i)
+		}
+	}
+}
+```
+
+## Haskell
+
+```haskell
+module Main where
+
+fizzbuzz :: Int -> String
+fizzbuzz x
+    | x `mod` 15 == 0 = "FizzBuzz"
+    | x `mod` 3  == 0 = "Fizz"
+    | x `mod` 5  == 0 = "Buzz"
+    | otherwise       = show x
+
+main = mapM (putStrLn . fizzbuzz) [1..100]
+```
+
+## Java
+
+```java
+public class FizzBuzz {
+  public static void main(String[] args) {
+    for (int i = 1; i < 101; i++) {
+      String output = "";
+      if (i % 3 == 0) {
+        output += "Fizz";
+      }
+      if (i % 5 == 0) {
+        output += "Buzz";
+      }
+      if (output.isEmpty()) {
+        output += i;
+      }
+      System.out.println(output);
+    }
+  }
+}
+```
+
+## JavaScript
+
+```javascript
+function fizzbuzz(num){
+    for(let i=1; i <= num; i++){
+      if(i % 15 == 0){
+        console.log("FizzBuzz");
+      }
+      else if(i % 5 == 0){
+        console.log("Buzz");
+      }
+      else if(i % 3 == 0){
+        console.log("Fizz");
+      }
+      else console.log(i);
+   }
+  }
+  
+fizzbuzz(100);
+```
+
+## Lisp
+
+```lisp
+(defun divides-by (num divisor)
+    (= (mod num divisor) 0))
+
+(dotimes (num 100)
+    (write-line
+      (cond
+        ((and (divides-by (+ num 1) 3) (divides-by (+ num 1) 5)) "FizzBuzz")
+        ((divides-by (+ num 1) 3) "Fizz")
+        ((divides-by (+ num 1) 5) "Buzz")
+        (t (write-to-string (+ num 1))))))
+```
+
+## Lua
+
+```lua
+for i = 1, 100 do
+    output = ""
+
+    if i % 3 == 0 then
+        output = output .. "Fizz"
+    end
+
+    if i % 5 == 0 then
+        output = output .. "Buzz"
+    end
+
+    if output == "" then
+        output = i
+    end
+
+    print(output)
+end
+```
+
+## Perl
+
+```perl
+#!/usr/bin/perl
+#
+# FizzBuzz in Perl
+
+use strict;
+use warnings;
+use diagnostics;
+use 5.10.0;
+
+for my $n (1..100) {
+    !($n % 15) ?    say "FizzBuzz"    :
+    !($n % 3)  ?    say "Fizz"        :
+    !($n % 5)  ?    say "Buzz"        :
+                    say "$n";
+}
+```
+
+## Python
+
+```python
+for n in range(1, 101):
+    if n % 3 == 0:
+        print("FizzBuzz" if n % 5 == 0 else "Fizz")
+        continue
+    print("Buzz" if n % 5 == 0 else n)
+```
+
+## Ruby
+
+```ruby
+def fizzbuzz(number)
+  divisibleBy3 = (number % 3 == 0)
+  divisibleBy5 = (number % 5 == 0)
+
+  case
+    when divisibleBy3 && divisibleBy5
+      puts "FizzBuzz"
+    when divisibleBy3
+      puts "Fizz"
+    when divisibleBy5
+      puts "Buzz"
+    else 
+      puts number
+  end
+end
+
+(1..100).each {|n| fizzbuzz n}
+```
+
+## Rust
+
+```rust
+fn main() {
+    for number in 1..101 {
+        if number % 3 == 0 && number % 5 == 0 {
+            println!("FizzBuzz");
+        } else if number % 3 == 0 {
+            println!("Fizz");
+        } else if number % 5 == 0 {
+            println!("Buzz");
+        } else {
+            println!("{}", number);
+        }
+    }
+}
+```
+
+## Credits
+
+All highlighting themes are from [Pygments.css](https://github.com/richleland/pygments-css), based on [pygments](https://github.com/pygments/pygments).
+
+The code examples above are from the [sample-programs](https://github.com/TheRenegadeCoder/sample-programs) repository.
+
+[Almond CSS](https://github.com/alvaromontoro/almond.css) is by [@alvaromontoro](https://github.com/alvaromontoro).
+
+HTML generated from Markdown using [Kramdown](https://github.com/gettalong/kramdown/). Table of contents generated by [tocdown](https://github.com/dohliam/tocdown).
